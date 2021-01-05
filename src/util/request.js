@@ -15,6 +15,13 @@ export function get_footer_info() {
     return request
 }
 
+export function get_homepage_details_asyncxhr() {
+    const request = new XMLHttpRequest()
+    request.open('GET', './data/content/home.json', false)
+
+    return request
+}
+
 export function get_biography_details_asyncxhr() {
     const request = new XMLHttpRequest()
     request.open('GET', './data/content/biography.json', false)

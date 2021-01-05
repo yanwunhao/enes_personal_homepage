@@ -1,12 +1,24 @@
 import {
-    get_biography_details_asyncxhr, get_publications_details_asyncxhr,
-    get_activities_details_asyncxhr, get_invitedtalk_details_asyncxhr,
-    get_teaching_details_asyncxhr, get_awards_details_asyncxhr
+    get_homepage_details_asyncxhr, get_biography_details_asyncxhr,
+    get_publications_details_asyncxhr, get_activities_details_asyncxhr,
+    get_invitedtalk_details_asyncxhr, get_teaching_details_asyncxhr,
+    get_awards_details_asyncxhr
 } from '../util/request'
 
 import * as pb from '../util/pagebuilder'
 
 export function enes_event_listener(event_name) {
+    if (event_name === 'Home') {
+        const request = get_homepage_details_asyncxhr()
+        request.send(null)
+        if (request.status === 200) {
+            const data = JSON.parse(request.responseText)
+
+            const page_content = []
+
+            return page_content
+        }
+    }
     if (event_name === 'Biography') {
         const request = get_biography_details_asyncxhr()
         request.send(null)
