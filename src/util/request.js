@@ -1,9 +1,16 @@
 const axios = require('axios')
 
-export function get_individual_catalog() {
+export function get_catalog() {
     const request = axios({
         url: './data/catalog.csv'
     })
+
+    return request
+}
+
+export function get_footer_info() {
+    const request = new XMLHttpRequest()
+    request.open('GET', './data/info.csv', false)
 
     return request
 }

@@ -32,6 +32,14 @@ export function primary_content_factory() {
     return element
 }
 
+export function footer_content_factory() {
+    const element = document.createElement('div')
+
+    element.id = 'footer_content'
+
+    return element
+}
+
 export function people_item_factory() {
     const element = document.createElement('div')
 
