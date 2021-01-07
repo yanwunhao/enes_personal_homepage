@@ -88,6 +88,11 @@ catalog_request.then(response => {
 
     document.body.appendChild(primary_nav)
 
+    const page = enes_event_listener('Home')
+    page.forEach(page_content => {
+        primary_content.appendChild(page_content)
+    })
+
     primary_content.appendChild(footer_content)
 
     document.body.appendChild(primary_content)

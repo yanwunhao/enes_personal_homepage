@@ -40,43 +40,10 @@ export function footer_content_factory() {
     return element
 }
 
-export function people_item_factory() {
-    const element = document.createElement('div')
-
-    element.className = 'people_item'
-
-    return element
-}
-
-export function people_content_factory() {
-    const element = document.createElement('div')
-
-    element.className = 'people_content'
-
-    return element
-}
-
 export function image_factory_by_id(img, id) {
     const image = new Image()
     image.src = img
     image.id = id
-
-    return image
-}
-
-export function image_factory_by_classname(img, class_name) {
-    const image = new Image()
-    image.src = img
-    image.className = class_name
-
-    return image
-}
-
-export function image_factory_base64(img_code, class_name) {
-    const image = new Image()
-    image.src = "data:image/gif;base64," + img_code
-
-    img.className = class_name
 
     return image
 }
