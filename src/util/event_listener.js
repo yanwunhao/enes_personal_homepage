@@ -212,7 +212,7 @@ export function enes_event_listener(event_name) {
                 }
                 if (element.img) {
                     const img = document.createElement('img')
-                    img.src = '/data/image/' + element.img
+                    img.src = './data/image/' + element.img
                     img.style.width = "100%"
                     li.appendChild(img)
                 }
