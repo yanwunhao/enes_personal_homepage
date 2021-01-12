@@ -12,11 +12,17 @@ import { enes_event_listener } from './util/event_listener'
 // Set up header
 const header = pb.header_factory()
 
-const title = pb.paragraph_factory('Welcome to Emerging Networks and Systems Laboratory (ENeS)', 'title')
+const top_border = pb.div_factory('top_border')
+header.appendChild(top_border)
+
+const title = pb.paragraph_factory('Welcome to My Website', 'title')
 
 const logo = pb.image_factory_by_id(Logo, 'muit_logo')
 
-header.appendChild(logo)
+const a_logo = pb.hyperlink_factory('', 'http://www.muroran-it.ac.jp/en/', '')
+a_logo.appendChild(logo)
+
+header.appendChild(a_logo)
 
 header.appendChild(title)
 
@@ -25,9 +31,11 @@ document.body.appendChild(header)
 // Set aside navlist
 const primary_nav = pb.primary_nav_factory()
 
-const primary_content = pb.primary_content_factory()
+const main = pb.main_factory()
 
-primary_content.appendChild(pb.paragraph_factory('Home', 'maintitle'))
+main.appendChild(pb.paragraph_factory('About Me', 'maintitle'))
+
+const primary_content = pb.primary_content_factory()
 
 // Set footer info
 const footer_content = pb.footer_content_factory()
@@ -53,7 +61,7 @@ if (footer_request.status === 200) {
 
     footer_logo.src = Logo_Footer
 
-    footer_logo.id = "footer_logo"
+    footer_logo.id = 'footer_logo'
 
     footer_content.appendChild(footer_logo)
 }
@@ -67,10 +75,9 @@ catalog_request.then(response => {
         const item = pb.primary_navItem_factory(catalog[i])
 
         item.addEventListener('click', function () {
-            document.getElementsByClassName('maintitle')[0].innerHTML = catalog[i]
+            document.getElementsByClassName('maintitle')[0].innerHTML = catalog[i] === 'Home' ? 'About Me' : catalog[i]
 
             document.getElementById('primary_content').innerHTML = ''
-            primary_content.appendChild(pb.paragraph_factory(catalog[i], 'maintitle'))
 
             const content = enes_event_listener(catalog[i])
 
@@ -95,5 +102,6 @@ catalog_request.then(response => {
 
     primary_content.appendChild(footer_content)
 
-    document.body.appendChild(primary_content)
+    main.appendChild(primary_content)
+    document.body.appendChild(main)
 })

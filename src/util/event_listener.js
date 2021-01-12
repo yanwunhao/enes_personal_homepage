@@ -23,6 +23,13 @@ export function enes_event_listener(event_name) {
 
             personal_info.appendChild(pb.strong_factory(data.name))
 
+            // change title content on the top of page
+            const name_length = data.name.indexOf('(')
+            if (name_length !== -1) {
+                const name_en = data.name.substr(0, name_length - 1)
+                document.getElementsByClassName('title')[0].innerText = 'Welcome to ' + name_en + "'s Website"
+            }
+
             if (data.remarks) {
                 data.remarks.forEach(remark => {
                     personal_info.appendChild(pb.paragraph_factory(remark, ''))
