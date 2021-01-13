@@ -54,7 +54,7 @@ export function enes_event_listener(event_name) {
 
                 const img = document.createElement('img')
                 img.src = './data/image/' + education.logo
-                img.style.width = '16px'
+                img.style.width = '20px'
                 img.style.verticalAlign = 'middle'
 
                 a.appendChild(img)
@@ -79,7 +79,7 @@ export function enes_event_listener(event_name) {
             person_msg.appendChild(pb.paragraph_factory('Message:', 'subtitle'))
 
             data.messages.forEach(msg => {
-                person_msg.appendChild(pb.paragraph_factory(msg, ''))
+                person_msg.appendChild(pb.paragraph_factory(msg, 'message_content'))
             })
 
             page_content.push(person_msg)
@@ -229,6 +229,8 @@ export function enes_event_listener(event_name) {
 
             const page_content = []
 
+            page_content.push(pb.paragraph_factory('', 'list_title'))
+
             page_content.push(ul)
 
             return page_content
@@ -267,6 +269,8 @@ export function enes_event_listener(event_name) {
             const data = JSON.parse(request.responseText)
 
             const page_content = []
+
+            page_content.push(pb.paragraph_factory('', 'list_title'))
 
             data.catagory.forEach(element => {
                 if (element.name) {

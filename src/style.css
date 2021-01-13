@@ -12,7 +12,9 @@ body{
     background-color: #ffffff;
     background-repeat: no-repeat;
     position: relative;
-    width: 823px;
+    width: 760px;
+
+    font-weight: 400;
 }
 
 #header
@@ -50,7 +52,7 @@ body{
 
 #main {
     display: inline-block;
-    width: 660px;
+    width: 597px;
     padding-top: 3px;
     padding-left: 3px;
 }
@@ -145,7 +147,7 @@ body{
     padding: 6px 12px;
 
     font-size: 12px;
-    line-height: 24px;
+    line-height: 22px;
 }
 
 #primary_content .personal_content #photo {
@@ -164,6 +166,19 @@ body{
     line-height: 24px;
 }
 
+#primary_content .personal_message .message_content {
+    line-height: 18px;
+}
+
+#primary_content .personal_message .message_content a{
+    text-decoration: none;
+    color: #000;
+}
+
+#primary_content .personal_message .message_content a:hover{
+    color: #3D963A;
+}
+
 #primary_content .personal_news {
     padding: 0px 12px;
 
@@ -171,9 +186,15 @@ body{
     line-height: 24px;
 }
 
+#primary_content .personal_news a {
+    color: #72af2c
+}
+
 #primary_content .subtitle {
     font-size: 12px;
     color: #72af2c;
+
+    margin-top: 10px;
 }
 
 #primary_content .bio_intro {
@@ -219,4 +240,9 @@ body{
 #primary_content .list .item a{
     text-decoration: none;
     color: #000;
+}
+
+#footer_content a{
+    text-decoration: none;
+    color: #3D963A;
 }

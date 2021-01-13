@@ -51,11 +51,15 @@ if (footer_request.status === 200) {
 
     footer_content.appendChild(pb.paragraph_factory(data[0], ''))
     footer_content.appendChild(pb.paragraph_factory(data[1], ''))
-    footer_content.appendChild(pb.paragraph_factory(data[2], ''))
+
+    const reg = new RegExp('/', 'g') // replace / in csv to ,
+    footer_content.appendChild(pb.paragraph_factory(data[2].replace(reg, ', '), ''))
 
     footer_content.appendChild(pb.paragraph_factory('Email: ' + data[3], ''))
     footer_content.appendChild(pb.paragraph_factory('Tel: ' + data[4], ''))
     footer_content.appendChild(pb.paragraph_factory('Fax: ' + data[5], ''))
+
+    footer_content.appendChild(pb.paragraph_factory('<a href="../index.html">ENeS Lab</a> | <a href="http://www.muroran-it.ac.jp/en/link_d/d_iee.html" target="_blank">Department of IEE</a> | <a href="http://www.muroran-it.ac.jp/en/" target="_blank">Muroran IT</a>', ''))
 
     const footer_logo = new Image()
 
