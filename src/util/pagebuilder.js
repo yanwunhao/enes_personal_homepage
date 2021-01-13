@@ -90,6 +90,14 @@ export function ul_factory(class_name) {
     return ul
 }
 
+export function ol_factory(class_name) {
+    const ol = document.createElement('ol')
+
+    ol.className = class_name
+
+    return ol
+}
+
 export function li_factory(content, class_name) {
     const li = document.createElement('li')
 

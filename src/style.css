@@ -64,6 +64,8 @@ body{
 
     height: 30px;
     line-height: 30px;
+    margin-top: 1px;
+
     font-size: 18px;
     font-weight: 400;
     text-indent:10px;
@@ -233,11 +235,60 @@ body{
 
 #primary_content .list .item {
     display: list-item;
-    font-size: 10px;
+
+    font-size: 12px;
+    line-height: 20px;
+
     margin-bottom: 10px;
 }
 
 #primary_content .list .item a{
+    text-decoration: none;
+    color: #000;
+}
+
+#primary_content .pubs_list {
+    list-style-type: none;
+    counter-reset: o-counter;
+
+    padding-inline-start: 50px;
+}
+
+#primary_content .pubs_list .item {
+    font-size: 12px;
+    line-height: 18px;
+
+    margin-bottom: 10px;
+}
+
+#primary_content .pubs_list .item:before{
+    display: inline-block;
+    content: '[' counter(o-counter) '] ';
+    counter-increment: o-counter;
+     width: 3em;
+     margin-left: -3em;
+}
+
+#primary_content .pubs_list .item a{
+    text-decoration: none;
+    color: #000;
+}
+
+#primary_content .invitedtalk_list {
+    padding-inline-start: 20px;
+}
+
+#primary_content .invitedtalk_list .item {
+    display: list-item;
+    list-style-position: inside;
+
+    font-size: 12px;
+    line-height: 20px;
+
+    margin-bottom: 10px;
+}
+
+#primary_content .invitedtalk_list .item a{
     text-decoration: none;
     color: #000;
 }

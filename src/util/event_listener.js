@@ -168,13 +168,13 @@ export function enes_event_listener(event_name) {
                 const title = pb.paragraph_factory(element.name, 'list_title')
                 page_content.push(title)
 
-                const ul = pb.ul_factory('list')
+                const ol = pb.ol_factory('list')
                 element.content.forEach(item => {
-                    ul.appendChild(pb.li_factory(`${item.author}, <a href=
+                    ol.appendChild(pb.li_factory(`${item.author}, <a href=
                     ${item.link ? item.link : ''}>${item.title}</a>, <em>${item.medium}</em>, ${item.remark}${item.award ? ', ' : ''} <font color="red">
                     ${item.award ? item.award : ''}</font>`, 'item'))
                 })
-                page_content.push(ul)
+                page_content.push(ol)
             })
 
             return page_content
@@ -208,7 +208,7 @@ export function enes_event_listener(event_name) {
         if (request.status === 200) {
             const data = JSON.parse(request.responseText)
 
-            const ul = pb.ul_factory('list')
+            const ul = pb.ul_factory('invitedtalk_list')
 
             data.list.forEach(element => {
                 const li = pb.li_factory(element.time + ` <a href="${element.link}" 
