@@ -21,7 +21,9 @@ export function enes_event_listener(event_name) {
             // Set personal info
             const personal_info = pb.div_factory('personal_info')
 
-            personal_info.appendChild(pb.strong_factory(data.name))
+            const name = pb.strong_factory(data.name)
+            name.style.fontSize = '1.2em'
+            personal_info.appendChild(name)
 
             // change title content on the top of page
             const name_length = data.name.indexOf('(')
@@ -60,6 +62,9 @@ export function enes_event_listener(event_name) {
                 a.appendChild(img)
                 p.appendChild(a)
 
+                p.style.lineHeight = '21px'
+                p.style.marginLeft = '3px'
+
                 personal_info.appendChild(p)
             })
 
@@ -71,18 +76,14 @@ export function enes_event_listener(event_name) {
             person_content.appendChild(personal_info)
             person_content.appendChild(photo)
 
-            page_content.push(person_content)
-
             // Set greeting and message
-            const person_msg = pb.div_factory('personal_message')
-
-            person_msg.appendChild(pb.paragraph_factory('Message:', 'subtitle'))
+            person_content.appendChild(pb.paragraph_factory('Message:', 'subtitle'))
 
             data.messages.forEach(msg => {
-                person_msg.appendChild(pb.paragraph_factory(msg, 'message_content'))
+                person_content.appendChild(pb.paragraph_factory(msg, 'message_content'))
             })
 
-            page_content.push(person_msg)
+            page_content.push(person_content)
 
             // Set personal news
             const person_news = pb.div_factory('personal_news')
@@ -95,8 +96,9 @@ export function enes_event_listener(event_name) {
                 if (news_content.type === 'new') {
                     const img = document.createElement('img')
                     img.src = new_label
-                    img.style.height = '18px'
+                    img.style.height = '20px'
                     img.style.verticalAlign = 'middle'
+                    img.style.marginRight = '5px'
 
                     p.appendChild(img)
                 }
@@ -168,10 +170,10 @@ export function enes_event_listener(event_name) {
                 const title = pb.paragraph_factory(element.name, 'list_title')
                 page_content.push(title)
 
-                const ol = pb.ol_factory('list')
+                const ol = pb.ol_factory('list pubs_list')
                 element.content.forEach(item => {
                     ol.appendChild(pb.li_factory(`${item.author}, <a href=
-                    ${item.link ? item.link : ''}>${item.title}</a>, <em>${item.medium}</em>, ${item.remark}${item.award ? ', ' : ''} <font color="red">
+                    ${item.link ? item.link : ''}>"${item.title}"</a>, <em>${item.medium}</em>, ${item.remark}${item.award ? ', ' : ''} <font color="red">
                     ${item.award ? item.award : ''}</font>`, 'item'))
                 })
                 page_content.push(ol)

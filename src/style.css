@@ -66,7 +66,7 @@ body{
     line-height: 30px;
     margin-top: 1px;
 
-    font-size: 18px;
+    font-size: 1.1em;
     font-weight: 400;
     text-indent:10px;
 }
@@ -78,8 +78,6 @@ body{
     list-style: none;
 
     width: 160px;
-
-    margin-top: 10px;
 
     vertical-align: top;
 }
@@ -95,6 +93,10 @@ body{
     font-size: 13px;
 
     cursor: pointer;
+}
+
+#primary_nav .primary_nav_item:hover {
+    color: #3D963A;
 }
 
 #primary_content 
@@ -125,67 +127,47 @@ body{
     right: 10px;
 }
 
-#primary_content .maintitle {
-    display: block;
-    background-color: #3D963A;
-    color: #ffffff;
-
-    height: 30px;
-    line-height: 30px;
-    font-size: 18px;
-    font-weight: 400;
-
-    margin: 3px;
-    text-indent:10px;
-}
 #primary_content .personal_content {
     display: block;
+    
+    padding: 6px 10px;
+
+    font-size: 0.7em;
+    line-height: 21px;
 }
 
 #primary_content .personal_content .personal_info {
     display: inline-block;
-    width: 60%;
-
-    padding: 6px 12px;
-
-    font-size: 12px;
-    line-height: 22px;
+    width: 360px;
 }
 
 #primary_content .personal_content #photo {
-    display: inline-block;
-    width: 30%;
+    width: 200px;
 
     vertical-align: top;
-    margin-top: 6px;
-    margin-left: 12px;
+
+    float: right;
 }
 
-#primary_content .personal_message {
-    padding: 0px 12px;
-
-    font-size: 12px;
-    line-height: 24px;
+#primary_content .personal_content .message_content {
+    font-size: 0.7em;
+    line-height: 21px;
 }
 
-#primary_content .personal_message .message_content {
-    line-height: 18px;
-}
-
-#primary_content .personal_message .message_content a{
+#primary_content .personal_content .message_content a{
     text-decoration: none;
     color: #000;
 }
 
-#primary_content .personal_message .message_content a:hover{
+#primary_content .personal_content .message_content a:hover{
     color: #3D963A;
 }
 
 #primary_content .personal_news {
-    padding: 0px 12px;
+    padding: 0px 10px;
 
-    font-size: 12px;
-    line-height: 24px;
+    font-size: 0.7em;
+    line-height: 21px;
 }
 
 #primary_content .personal_news a {
@@ -196,7 +178,7 @@ body{
     font-size: 12px;
     color: #72af2c;
 
-    margin-top: 10px;
+    margin-top: 6px;
 }
 
 #primary_content .bio_intro {
@@ -223,7 +205,7 @@ body{
 }
 
 #primary_content .list_title {
-    font-size: 12px;
+    font-size: 0.9em;
     font-weight: 600;
 
     margin: 10px;
@@ -236,10 +218,10 @@ body{
 #primary_content .list .item {
     display: list-item;
 
-    font-size: 12px;
-    line-height: 20px;
+    font-size: 0.7em;
+    line-height: 1.7em;
 
-    margin-bottom: 10px;
+    margin-bottom: 0.5em;
 }
 
 #primary_content .list .item a{
@@ -251,22 +233,22 @@ body{
     list-style-type: none;
     counter-reset: o-counter;
 
-    padding-inline-start: 50px;
+    padding-inline-start: 60px;
 }
 
 #primary_content .pubs_list .item {
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 0.7em;
+    line-height: 1.7em;
 
-    margin-bottom: 10px;
+    margin-bottom: 0.5em;
 }
 
 #primary_content .pubs_list .item:before{
     display: inline-block;
     content: '[' counter(o-counter) '] ';
     counter-increment: o-counter;
-     width: 3em;
-     margin-left: -3em;
+    width: 3em;
+    margin-left: -3em;
 }
 
 #primary_content .pubs_list .item a{
