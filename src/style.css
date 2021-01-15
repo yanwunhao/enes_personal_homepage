@@ -193,14 +193,16 @@ body{
 }
 
 #primary_content .bio_exp {
-    text-align: center;
+    padding: 20px 30px;
+}
 
-    padding: 20px 0px;
+#primary_content .bio_exp .bio_exp_logo {
+    width: 120px;
 }
 
 #primary_content .bio_exp .bio_exp_details {
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 30px;
 
     vertical-align:top;
     text-align: left;
