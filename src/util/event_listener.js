@@ -264,6 +264,9 @@ export function enes_event_listener(event_name) {
             return page_content
         }
     }
+    else if (event_name === 'Grants') {
+
+    }
     else if (event_name === 'Awards') {
         const request = get_awards_details_asyncxhr()
         request.send(null)

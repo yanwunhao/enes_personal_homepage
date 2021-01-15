@@ -34,9 +34,11 @@ body{
 }
 
 #header #muit_logo {
-    width: 160px;
+    width: 161px;
     height: 64px;
-    vertical-align: middle;
+    
+    margin-top: 4px;
+    margin-left: 2px;
 }
 
 #header .title 
@@ -48,6 +50,8 @@ body{
 
     position: absolute;
     right: 0;
+
+    transform: translate(2px, -6px);
 }
 
 #main {
@@ -62,8 +66,8 @@ body{
     background-color: #3D963A;
     color: #ffffff;
 
-    height: 30px;
-    line-height: 30px;
+    height: 33px;
+    line-height: 33px;
     margin-top: 1px;
 
     font-size: 1.1em;
@@ -151,7 +155,7 @@ body{
 
 #primary_content .personal_content .message_content {
     font-size: 0.7em;
-    line-height: 21px;
+    line-height: 20px;
 }
 
 #primary_content .personal_content .message_content a{
