@@ -57,6 +57,13 @@ export function get_teaching_details_asyncxhr() {
     return request
 }
 
+export function get_grants_details_asyncxhr() {
+    const request = new XMLHttpRequest()
+    request.open('GET', './data/content/grants.json', false)
+
+    return request
+}
+
 export function get_awards_details_asyncxhr() {
     const request = new XMLHttpRequest()
     request.open('GET', './data/content/awards.json', false)

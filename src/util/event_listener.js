@@ -2,7 +2,7 @@ import {
     get_homepage_details_asyncxhr, get_biography_details_asyncxhr,
     get_publications_details_asyncxhr, get_activities_details_asyncxhr,
     get_invitedtalk_details_asyncxhr, get_teaching_details_asyncxhr,
-    get_awards_details_asyncxhr
+    get_grants_details_asyncxhr, get_awards_details_asyncxhr
 } from '../util/request'
 
 import * as pb from '../util/pagebuilder'
@@ -265,7 +265,29 @@ export function enes_event_listener(event_name) {
         }
     }
     else if (event_name === 'Grants') {
+        const request = get_grants_details_asyncxhr()
+        request.send(null)
+        if (request.status === 200) {
+            const data = JSON.parse(request.responseText)
 
+            const page_content = []
+
+            data.catagory.forEach(element => {
+                if (element.name) {
+                    const title = pb.paragraph_factory(element.name, 'list_title')
+                    page_content.push(title)
+                }
+
+                const ul = pb.ul_factory('list')
+                element.content.forEach(item => {
+                    ul.appendChild(pb.li_factory(item, 'item'))
+                })
+
+                page_content.push(ul)
+            })
+
+            return page_content
+        }
     }
     else if (event_name === 'Awards') {
         const request = get_awards_details_asyncxhr()

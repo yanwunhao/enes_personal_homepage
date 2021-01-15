@@ -226,6 +226,8 @@ body{
     line-height: 1.7em;
 
     margin-bottom: 0.5em;
+
+    max-width: 550px;
 }
 
 #primary_content .list .item a{
