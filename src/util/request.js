@@ -1,4 +1,4 @@
-const axios = require('axios')
+import 'axios'
 
 export function get_catalog() {
     const request = axios({
