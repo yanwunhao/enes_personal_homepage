@@ -111,6 +111,10 @@ catalog_request.then(response => {
 
             if (typeof content === 'string') {
                 window.location.href = `../${content}.html`
+            } else {
+                // Make a Fake URL
+                const base_url = window.location.href.split('?')[0]
+                window.history.pushState({}, 0, base_url + '?page=' + catalog[i].toLowerCase().replace(' ', '_'))
             }
 
             content.forEach(element => { primary_content.appendChild(element) })
@@ -135,15 +139,34 @@ catalog_request.then(response => {
 
     body_content.appendChild(primary_nav)
 
-    const page = enes_event_listener('Home')
-    page.forEach(page_content => {
-        primary_content.appendChild(page_content)
-    })
-
-    primary_content.appendChild(footer_content)
-
     main.appendChild(primary_content)
     body_content.appendChild(main)
+
+    // handle the parameter of url
+    const parameters = window.location.search.split('=')
+    if (parameters.length > 1 && parameters[0] === '?page') {
+        const path = parameters[1]
+        const path_for_event = path.split('_').map(element => {
+            return element.replace(/^\S/g, s => s.toUpperCase())
+        }).join(' ')
+        document.getElementsByClassName('maintitle')[0].innerHTML = path_for_event === 'Home' ? 'About Me' : path_for_event
+        const page = enes_event_listener(path_for_event)
+        if (typeof page === 'string') {
+            window.location.href = `../${page}.html`
+        } else {
+            page.forEach(page_content => {
+                primary_content.appendChild(page_content)
+            })
+            primary_content.appendChild(footer_content)
+        }
+
+    } else {
+        const page = enes_event_listener('Home')
+        page.forEach(page_content => {
+            primary_content.appendChild(page_content)
+        })
+        primary_content.appendChild(footer_content)
+    }
 
     // add imageviewer event to the images that need to be zoom-in
     const zoom_in_imgs = document.getElementsByClassName('zoom_in_img')
