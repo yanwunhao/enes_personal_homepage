@@ -9,6 +9,26 @@ import { get_catalog, get_footer_info } from './util/request'
 
 import { enes_event_listener } from './util/event_listener'
 
+import imageViewer from './componnent/imageviewer'
+import cover from './componnent/cover'
+
+// Set up global plugin
+document.body.appendChild(imageViewer)
+imageViewer.style.display = 'none'
+
+document.body.appendChild(cover)
+cover.style.display = 'none'
+
+cover.addEventListener('click', () => {
+    imageViewer.style.display = 'none'
+    cover.style.display = 'none'
+})
+
+imageViewer.addEventListener('click', () => {
+    imageViewer.style.display = 'none'
+    cover.style.display = 'none'
+})
+
 // Set up body
 const body_content = pb.body_content_factory()
 document.body.appendChild(body_content)
@@ -95,6 +115,18 @@ catalog_request.then(response => {
 
             content.forEach(element => { primary_content.appendChild(element) })
 
+            // add imageviewer event to the images that need to be zoom-in
+            const zoom_in_imgs = document.getElementsByClassName('zoom_in_img')
+            for (let i = 0; i < zoom_in_imgs.length; i++) {
+                console.log('event added')
+                zoom_in_imgs[i].addEventListener('click', () => {
+                    cover.style.display = 'block'
+
+                    imageViewer.style.display = 'block'
+                    imageViewer.changeImgSrc(zoom_in_imgs[i].src)
+                })
+            }
+
             primary_content.appendChild(footer_content)
         })
 
@@ -112,4 +144,16 @@ catalog_request.then(response => {
 
     main.appendChild(primary_content)
     body_content.appendChild(main)
+
+    // add imageviewer event to the images that need to be zoom-in
+    const zoom_in_imgs = document.getElementsByClassName('zoom_in_img')
+    for (let i = 0; i < zoom_in_imgs.length; i++) {
+        zoom_in_imgs[i].addEventListener('click', () => {
+            cover.style.display = 'block'
+
+            imageViewer.style.display = 'block'
+            imageViewer.changeImgSrc(zoom_in_imgs[i].src)
+        })
+    }
+
 })

@@ -114,6 +114,7 @@ export function enes_event_listener(event_name) {
                         img.src = './data/image/' + image
                         img.style.width = '96%'
                         img.style.marginLeft = '2%'
+                        img.className = 'zoom_in_img'
 
                         person_news.appendChild(img)
                     })
