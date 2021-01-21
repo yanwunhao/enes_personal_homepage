@@ -9,6 +9,10 @@ import { get_catalog, get_footer_info } from './util/request'
 
 import { enes_event_listener } from './util/event_listener'
 
+// Set up body
+const body_content = pb.body_content_factory()
+document.body.appendChild(body_content)
+
 // Set up header
 const header = pb.header_factory()
 
@@ -26,7 +30,7 @@ header.appendChild(a_logo)
 
 header.appendChild(title)
 
-document.body.appendChild(header)
+body_content.appendChild(header)
 
 // Set aside navlist
 const primary_nav = pb.primary_nav_factory()
@@ -97,7 +101,7 @@ catalog_request.then(response => {
         primary_nav.appendChild(item)
     }
 
-    document.body.appendChild(primary_nav)
+    body_content.appendChild(primary_nav)
 
     const page = enes_event_listener('Home')
     page.forEach(page_content => {
@@ -107,5 +111,5 @@ catalog_request.then(response => {
     primary_content.appendChild(footer_content)
 
     main.appendChild(primary_content)
-    document.body.appendChild(main)
+    body_content.appendChild(main)
 })
