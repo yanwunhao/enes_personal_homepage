@@ -113,8 +113,8 @@ catalog_request.then(response => {
                 window.location.href = `../${content}.html`
             } else {
                 // Make a Fake URL
-                const base_url = window.location.href.split('?')[0]
-                window.history.pushState({}, 0, base_url + '?page=' + catalog[i].toLowerCase().replace(' ', '_'))
+                // const base_url = window.location.href.split('?')[0]
+                // window.history.pushState({}, 0, base_url + '?page=' + catalog[i].toLowerCase().replace(' ', '_'))
             }
 
             content.forEach(element => { primary_content.appendChild(element) })
