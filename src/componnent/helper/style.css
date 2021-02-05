@@ -1,0 +1,19 @@
+#helper {
+    position: fixed;
+    bottom: 4vh;
+    right: 4vw;
+
+    width: 6vw;
+
+    opacity: 0.3;
+}
+
+#helper :hover {
+    transition:  opacity 0.2s ease;
+    cursor: pointer;
+    display: block;
+}
+
+#helper #helper_image {
+    width: 100%;
+}

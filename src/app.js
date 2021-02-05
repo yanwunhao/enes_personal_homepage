@@ -11,6 +11,7 @@ import { enes_event_listener } from './util/event_listener'
 
 import imageViewer from './componnent/imageviewer'
 import cover from './componnent/cover'
+import helper from './componnent/helper'
 
 // Set up global plugin
 document.body.appendChild(imageViewer)
@@ -18,6 +19,8 @@ imageViewer.style.display = 'none'
 
 document.body.appendChild(cover)
 cover.style.display = 'none'
+
+document.body.appendChild(helper)
 
 cover.addEventListener('click', () => {
     imageViewer.style.display = 'none'
@@ -28,6 +31,9 @@ imageViewer.addEventListener('click', () => {
     imageViewer.style.display = 'none'
     cover.style.display = 'none'
 })
+
+let fake_url = ''
+helper.addClickEvent(() => { alert('The URL of Current Page is ' + fake_url) })
 
 // Set up body
 const body_content = pb.body_content_factory()
@@ -115,6 +121,10 @@ catalog_request.then(response => {
                 // Make a Fake URL
                 // const base_url = window.location.href.split('?')[0]
                 // window.history.pushState({}, 0, base_url + '?page=' + catalog[i].toLowerCase().replace(' ', '_'))
+
+                // Make a Fake URL By Helper
+                const base_url = window.location.href.split('?')[0]
+                fake_url = base_url + '?page=' + catalog[i].toLowerCase().replace(' ', '_')
             }
 
             content.forEach(element => { primary_content.appendChild(element) })
@@ -150,6 +160,7 @@ catalog_request.then(response => {
             return element.replace(/^\S/g, s => s.toUpperCase())
         }).join(' ')
         document.getElementsByClassName('maintitle')[0].innerHTML = path_for_event === 'Home' ? 'About Me' : path_for_event
+        fake_url = window.location.href
         const page = enes_event_listener(path_for_event)
         if (typeof page === 'string') {
             window.location.href = `../${page}.html`
@@ -162,6 +173,7 @@ catalog_request.then(response => {
 
     } else {
         const page = enes_event_listener('Home')
+        fake_url = window.location.href
         page.forEach(page_content => {
             primary_content.appendChild(page_content)
         })
